@@ -1,0 +1,23 @@
+{
+    "name": "cassio/giphy",
+    "description": "teste giphy api access",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "cassio",
+            "email": "cassio.emmanuel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Client": "src/"
+            
+        }
+
+    }
+}
