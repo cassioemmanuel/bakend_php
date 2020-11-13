@@ -13,7 +13,7 @@ class Gyphy {
 
     public function searchGifs($query)
     {
-        $transformed;
+        $transformed = [];
         
         $image = $this->client->get('/gifs/search?q='. $query);
 
@@ -25,16 +25,39 @@ class Gyphy {
                 'url'=>[$item]['type'],
                 'bitly_url'=>[$item]['type'],
                 'embed_url'=>[$item]['type'],
-                'title';=>[$item]['type'],
-            ]
+                'title'=>[$item]['type']
+            ];           
+        }
+        
+        return $transformed;   
+    }
+
+    public function trendingGifs($query)
+    {
+        $transformed;
+        
+        $image = $this->client->get('/gifs/trending'. $query);
+
+        foreach( $image['data'] as $item ) {
+            $transformed['data'][]= [
+                'type'=>[$item]['type'],
+                'id'=>[$item]['type'],
+                'slug'=>[$item]['type'],
+                'url'=>[$item]['type'],
+                'bitly_url'=>[$item]['type'],
+                'embed_url'=>[$item]['type'],
+                'title'=>[$item]['type']
+            ];
+
+          
             
         }
+        return $transformed; 
     }
 
     public function serachStickers($q) 
     {
        return $this->client->get('/stickers/search?q=' . $query);
     }
-     
      
 }
